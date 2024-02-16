@@ -9,19 +9,10 @@ import pprint
 CLOUD_NAME = config.CLOUD_NAME
 conn = openstack.connect(cloud=CLOUD_NAME)
 
-
 # List the servers
-def test_init():
-    for server in conn.list_servers():
-        # pprint.pprint(server.to_dict())
-        print(f"\nInstance \"{server.name}\" has \"{server.status}\" status")
-        assert server.status == "ACTIVE", f"Failed: Instance \"{server.name}\" has \"{server.status}\" status"
-        # print(server)
-
-
-def print_server():
-    for server in conn.list_servers():
-        pprint.pprint(server.to_dict())
+for server in conn.list_servers():
+    pprint.pprint(server.to_dict())
+    # print(server)
 
     # 'power_state': 1,
     # 'private_v4': '',
@@ -37,3 +28,4 @@ def print_server():
     # 'security_groups': [{'name': 'default'}],
     # 'server_groups': None,
     # 'status': 'ACTIVE',
+
