@@ -358,8 +358,8 @@ def create_vm(name=config.SERVER_NAME,
               image_name=config.IMAGE_NAME+'_cirros',
               volume_size=1,
               keypair=True,
-              recreate=False):
-    print(f"creating vm {name}")
+              recreate=False, **attrs):
+    print(f"Creating vm {name}")
 
     if recreate:
         for server in conn.compute.servers():
