@@ -1,0 +1,46 @@
+clouds:
+  ebochkov-lcm:
+    auth:
+      auth_url: https://10.224.130.3:5000
+      username: admin
+      password: xeS86Zikaes9zx2txig0TUBFvIYGxCgWEw3IdLo9
+#      project_id: 517bdd62ebd64c46b790ced4cf1d1338
+      project_name: admin
+      project_domain_id: default
+      user_domain_name: Default
+    cacert: ./chain-cert.pem
+    region_name: bochkov-ek
+    interface: internal
+#    identity_api_version: '3'
+
+  ebochkov-ks-sber:
+    auth:
+      auth_url: https://10.224.140.99:5000
+      username: admin
+      password: Z431wTgYTE2h52FJfghHGm3ntzAgUurY7v5nXuuM
+      #      project_id: 517bdd62ebd64c46b790ced4cf1d1338
+      project_name: admin
+      project_domain_id: default
+      user_domain_name: Default
+    cacert: ./haproxy_pem
+    region_name: ebochkov-ks-sber
+    interface: internal
+  #    identity_api_version: '3'
+
+# Ansible managed
+
+# Clear any old environment that may conflict.
+#for key in $( set | awk '{FS="="}  /^OS_/ {print $1}' ); do unset $key ; done
+#export OS_PROJECT_DOMAIN_NAME='Default'
+#export OS_USER_DOMAIN_NAME='Default'
+#export OS_PROJECT_NAME='admin'
+#export OS_TENANT_NAME='admin'
+#export OS_USERNAME='admin'
+#export OS_PASSWORD='Z431wTgYTE2h52FJfghHGm3ntzAgUurY7v5nXuuM'
+#export OS_AUTH_URL='https://10.224.140.99:5000'
+#export OS_INTERFACE='internal'
+#export OS_ENDPOINT_TYPE='internalURL'
+#export OS_IDENTITY_API_VERSION='3'
+#export OS_REGION_NAME='ebochkov-ks-sber'
+#export OS_AUTH_PLUGIN='password'
+#export OS_DRS_ENDPOINT_OVERRIDE='https://10.224.140.99:12998'
