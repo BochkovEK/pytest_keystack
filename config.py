@@ -1,6 +1,16 @@
 DEFAULT_INSTALL_HOME = '/installer'
 CLOUD_NAME = 'ebochkov-ks-sber'
 SERVER_NAME = 'test_vm_sdk'
+ANTI_AFFIN_GROUP_NAME = "test_anti_affinity_group"
+ANTI_AFFIN_GROUP_PROP = {
+    'name': ANTI_AFFIN_GROUP_NAME,
+    'policy': "anti-affinity"
+}
+AFFIN_GROUP_NAME = "test_anti_affinity_group"
+AFFIN_GROUP_PROP = {
+    'name': AFFIN_GROUP_NAME,
+    'policy': "affinity"
+}
 NETWORK_NAME = 'test_network_sdk'
 NETWORK_STATE_NAME = 'pub_net'
 IMAGE_NAME = 'test_image_sdk'

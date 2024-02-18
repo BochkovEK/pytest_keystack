@@ -26,34 +26,33 @@ def server_group_list():
     return sg_list
 
 
+def find_server_group(server_group_name):
+    print(f"Finding server group: \"{server_group_name}\"...")
+    return conn.compute.find_server_group(server_group_name, ignore_missing=True, all_projects=False)
+
+
 def create_server_group(**attrs):
-    affin_group_exist = False
-    for sg in server_group_list():
-        if sg.name == attrs.get('name'):
-            affin_group_exist = True
-            return sg
-    if not affin_group_exist:
-        print(f"Creating server group: \"{attrs.get('name')}\"...")
-        sg = conn.compute.create_server_group(**attrs)
-        print(f"Finding server group: \"{attrs.get('name')}\"...")
-        print(conn.compute.find_server_group(attrs.get('name'), ignore_missing=True, all_projects=False))
+    sg = find_server_group(attrs.get('name'))
+    if sg:
+        print(f"Server group: \"{attrs.get('name')}\" already exist")
         return sg
+    else:
+        print(f"Creating server group: \"{attrs.get('name')}\"...")
+        return conn.compute.create_server_group(**attrs)
 
 
 def delete_server_group(server_group_name):
-    for sg in server_group_list():
-        if sg.name == server_group_name:
-            print(f"Deleting server group: \"{server_group_name}\"...")
-            conn.compute.delete_server_group(sg.id, ignore_missing=True)
+    sg = find_server_group(server_group_name)
+    if sg:
+        print(f"Deleting server group: \"{server_group_name}\"...")
+        conn.compute.delete_server_group(sg.id, ignore_missing=True)
+    else:
+        print(f"Server group: \"{server_group_name}\" not found...")
+        return False
 
 
-create_server_group(**affin_group_prop)
+# create_server_group(**affin_group_prop)
 # delete_server_group(affin_group_name)
 
-
-# foo = {'name': 'Bogdan', 'posts_qty': 25}
-# def get_posts_info(**kwargs):
-#     print(kwargs)
-# get_posts_info(**foo)
 
 

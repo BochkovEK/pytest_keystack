@@ -1,10 +1,10 @@
 import os
 import time
-# import testinfra
+import testinfra
 import openstack
 from openstack import exceptions
 import config
-# import environment
+import environment
 import re
 import math
 
@@ -352,13 +352,15 @@ def check_for_exists_vm(name, image_name):
         return False
 
 
-def create_vm(name=config.SERVER_NAME,
-              network_name=config.NETWORK_NAME,
-              flavor_name=config.FLAVOR_NAME,
-              image_name=config.IMAGE_NAME+'_cirros',
-              volume_size=1,
-              keypair=True,
-              recreate=False, **attrs):
+def create_vm(
+        name=config.SERVER_NAME,
+        network_name=config.NETWORK_NAME,
+        flavor_name=config.FLAVOR_NAME,
+        image_name=config.IMAGE_NAME+'_cirros',
+        volume_size=1,
+        keypair=True,
+        recreate=False,
+        **attrs):
     print(f"Creating vm {name}")
 
     if recreate:
@@ -379,7 +381,7 @@ def create_vm(name=config.SERVER_NAME,
         server_prop = {
             'name': name,
             'flavor_id': flavor.id,
-            # image_id=image.id,
+            'image_id': image.id,
             'security_groups': [security_group],
             'networks': [{"uuid": network.id}],
             'block_device_mapping': [{'source_type': 'image',
@@ -392,7 +394,8 @@ def create_vm(name=config.SERVER_NAME,
                                       # 'guest_format': 'swap',
                                       # 'device_type': 'disk',
                                       # 'disk_bus': 'scsi',
-                                      }]
+                                      }],
+            **attrs
         }
 
         if keypair:
