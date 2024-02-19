@@ -98,6 +98,7 @@ def get_stress_cmd(cpu=0, ram=0, timeout=1):
 
 
 def hypervisors_list():
+    print('Check hypervisors...')
     hosts = []
     for hv in conn.compute.hypervisors(details=True, with_servers=True):
         print(hv.name)

@@ -15,7 +15,7 @@ clouds:
 
   ebochkov-ks-sber:
     auth:
-      auth_url: https://10.224.140.99:5000
+      auth_url: https://10.224.140.100:5000
       username: admin
       password: Z431wTgYTE2h52FJfghHGm3ntzAgUurY7v5nXuuM
       #      project_id: 517bdd62ebd64c46b790ced4cf1d1338

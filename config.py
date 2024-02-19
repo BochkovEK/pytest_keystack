@@ -1,5 +1,8 @@
+# BY CLOUD ENV
 DEFAULT_INSTALL_HOME = '/installer'
 CLOUD_NAME = 'ebochkov-ks-sber'
+URL_COMPUTE_SERVICE = '8774/v2.1/os-services/'
+
 SERVER_NAME = 'test_vm_sdk'
 ANTI_AFFIN_GROUP_NAME = "test_anti_affinity_group"
 ANTI_AFFIN_GROUP_PROP = {
