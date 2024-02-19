@@ -4,7 +4,7 @@ import config
 
 conn = openstack.connect(cloud=config.CLOUD_NAME)
 token = conn.auth_token
-print (token)
+# print(token)
 
 affin_group_name = "test_affinity_group"
 

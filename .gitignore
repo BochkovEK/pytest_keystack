@@ -1,2 +1,5 @@
 .idea
 venv
+.pytest_cache
+openstacksdk_init.py
+example_requests.py
