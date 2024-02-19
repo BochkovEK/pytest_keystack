@@ -23,7 +23,7 @@ def get_token():
             "user_domain_name": "Default"
         }
     )
-    print(token.content)
+    print(f"token: {token.json()['X-Auth-Token']}")
     return token.json()['X-Auth-Token']
 
 
